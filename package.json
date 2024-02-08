@@ -1,0 +1,14 @@
+{
+  "name": "swiggy",
+  "version": "1.0.0",
+  "description": "Swiggy clone",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Rahul Anand",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  }
+}
