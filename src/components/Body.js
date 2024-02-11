@@ -3,6 +3,7 @@ import mockRestaurants from "../utils/mockRestaurants";
 import {useState, useEffect} from "react";
 import {SWIGGY_RESTAURANT_DATA} from "../utils/Urls"
 import Shimmer from "./Shimmer";
+import {Link} from "react-router-dom"
 
 const Body = () => {
   //const restData = mockRestaurants;
@@ -49,7 +50,7 @@ const Body = () => {
         <div className="restaurant-container">
        
       { topRestruant.map((restData) => (
-        <RestaurantCard key={restData.info.id} restaurant={restData} />
+      <Link to ={"/restaurant/"+restData.info.id}> <RestaurantCard key={restData.info.id} restaurant={restData} /></Link> 
       ))}
     </div>
     </div>
