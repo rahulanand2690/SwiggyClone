@@ -32,13 +32,16 @@ const RestaurantMenu = () =>{
    
     return(
         <div className="restaurant-menu">
-            <h1> {name}</h1>
-            <h3>{city}</h3>
-            <h3>{cuisines.join(",")}</h3>
-            <h3>{costForTwoMessage}</h3>
-            <h2>Menu</h2>
-           
-            <ul>
+            <div className="restaurantDetails">
+                <div className="restName">
+                <h1>{name}</h1>
+                </div>
+                <h3>{city}</h3>
+                <h3>{cuisines.join(",")}</h3>
+                <h3>{costForTwoMessage}</h3>
+                <h2>Menu</h2>
+            </div>
+            <ul className="menuList">
               { menuItems.map((menu) => <li>{menu.card.info.name} - Rs{menu?.card?.info?.price/100 || menu?.card?.info?.defaultPrice/100}</li>)}
             </ul>
 

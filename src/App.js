@@ -10,11 +10,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const App = ()=>{
     return (
-        <div>
+        <div className="main-container">
             <Header />
             <Outlet />
-           
-
         </div>
     )
 }

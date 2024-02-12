@@ -4,15 +4,29 @@
     padding: 20px 20px;
 }
 
+.main-container{
+    /* align-items: end; */
+    justify-content: space-around;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
 
 .restaurant-container {
     display: flex;
     flex-wrap: wrap;
     padding: 20px 20px;
-   /*  :hover{
-        border: 2px solid #757373;
+    margin:20px;
+   align-content: space-between;
+}
 
-    } */
+.filter-container {
+    display: flex;
+    margin:25px;
+    padding-left: 20px;
 }
 
 .restaurant-card {
@@ -69,7 +83,39 @@
 
 }
 
-.filter-container {
+
+
+.restaurant-menu {
+    margin: 50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+    flex-direction: column;
+}
+.menuList {
+    list-style-type: none;
+}
+.menuList >li{
+    border: 1px solid #6b6969;
+    /* width: 350px; */
+    margin: 5px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.menuList >li:hover{
+    border: 3px solid lightgray;
+    cursor: pointer;
+}
+.restaurantDetails {
+    text-align: left;
+}
+
+.restaurant-menu{
+    min-width:500px;
+}
+.restName {
     display: flex;
-    margin:25px;
+    align-items: baseline;
 }
