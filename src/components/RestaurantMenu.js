@@ -2,29 +2,33 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {RESTAURANT_MENU}  from  "../utils/Urls"
 import Shimmer from "./Shimmer";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 const RestaurantMenu = () =>{
-    const [itemList, setItemsList] = useState(null);
+  // const [itemList, setItemsList] = useState(null);
     const {resId} = useParams();
-    console.log(resId)
-    useEffect(() =>{
+   /*  useEffect(() =>{
         fetchResaurantMenu();
-    },[])
+    },[]) */
 
-    const fetchResaurantMenu = async () =>{
+   /*  const fetchResaurantMenu = async () =>{
         const data = await fetch(RESTAURANT_MENU + resId);
         const json = await data.json();
         //console.log(json.data)
         setItemsList(json.data)
         //console.log(itemList)
-    }
+    } */
+      const itemList = useRestaurantMenu(resId)
     
     if(!itemList){
         return<Shimmer />
     }
-    console.log(itemList.cards)
+   
+        console.log(itemList.cards)
      const {name,city,costForTwoMessage,cuisines} = itemList?.cards[0]?.card?.card?.info;
      const menuItems = itemList.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards
      console.log(menuItems)
+    
+    
    
     
 
@@ -36,7 +40,7 @@ const RestaurantMenu = () =>{
                 <div className="restName">
                 <h1>{name}</h1>
                 </div>
-                <h3>{city}</h3>
+                {/* <h3>{city}</h3> */}
                 <h3>{cuisines.join(",")}</h3>
                 <h3>{costForTwoMessage}</h3>
                 <h2>Menu</h2>

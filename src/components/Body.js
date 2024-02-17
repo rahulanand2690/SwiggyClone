@@ -19,6 +19,7 @@ const Body = () => {
   const fetchData = async () =>{
     const data = await fetch(SWIGGY_RESTAURANT_DATA);
     const json = await data.json();
+    console.log(json.data)
     console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
     setListOfRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
     setTopRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)

@@ -105,8 +105,9 @@
 }
 
 .menuList >li:hover{
-    border: 3px solid lightgray;
+    /* border: 3px solid lightgray; */
     cursor: pointer;
+    background: #f0f0f0;
 }
 .restaurantDetails {
     text-align: left;
