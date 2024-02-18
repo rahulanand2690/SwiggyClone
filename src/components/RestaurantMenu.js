@@ -1,8 +1,10 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {RESTAURANT_MENU}  from  "../utils/Urls"
+import {MENU_IMAGE_URL}  from  "../utils/Urls"
 import Shimmer from "./Shimmer";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import SampleDish from "../../public/SampleDish.png"
 const RestaurantMenu = () =>{
   // const [itemList, setItemsList] = useState(null);
     const {resId} = useParams();
@@ -24,7 +26,7 @@ const RestaurantMenu = () =>{
     }
    
         console.log(itemList.cards)
-     const {name,city,costForTwoMessage,cuisines} = itemList?.cards[0]?.card?.card?.info;
+     const {name,city,areaName,costForTwoMessage,cuisines} = itemList?.cards[0]?.card?.card?.info;
      const menuItems = itemList.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards
      console.log(menuItems)
     
@@ -35,18 +37,28 @@ const RestaurantMenu = () =>{
    
    
     return(
-        <div className="restaurant-menu">
-            <div className="restaurantDetails">
+        <div className="restaurant-menu  ">
+            <div className="restaurantDetails justify-center  p-10">
                 <div className="restName">
-                <h1>{name}</h1>
+                <h1 className="font-bold text-lg">{name}</h1>
                 </div>
-                {/* <h3>{city}</h3> */}
-                <h3>{cuisines.join(",")}</h3>
+                <h3>{areaName} , {city}</h3>
+                <h3>{cuisines.join(", ")}</h3>
                 <h3>{costForTwoMessage}</h3>
-                <h2>Menu</h2>
+                <h2 className="font-bold"> Menu</h2>
             </div>
-            <ul className="menuList">
-              { menuItems.map((menu) => <li>{menu.card.info.name} - Rs{menu?.card?.info?.price/100 || menu?.card?.info?.defaultPrice/100}</li>)}
+            <ul className="menuList  flex-col justify-center  px-8 ">
+              { menuItems.map((menu) => 
+              <div className="p-2 m-2 border-2 border-solid border-gray-200 w-[500px] rounded-lg hover:bg-gray-100 flex font-bold justify-center items-center">
+              <li className="flex flex-col">{menu.card.info.name} 
+              <span className="justify-center items-center">Rs {menu?.card?.info?.price/100 || menu?.card?.info?.defaultPrice/100}</span>
+              
+              
+              </li>
+              <img className="h-[100px] w-[100px] p-1  m-2 rounded-lg" src={menu.card.info.imageId ? MENU_IMAGE_URL + menu.card.info.imageId : SampleDish}></img>
+              </div>
+              )}
+             
             </ul>
 
         </div>
